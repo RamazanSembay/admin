@@ -5,12 +5,29 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import 'package:intl/intl.dart';
+
 class InfoAdmin extends StatefulWidget {
   final String id;
   final String name;
   final String image;
+  final String city;
+  final String address;
+  final String phone;
+  final int totalprice;
+  final int quantity;
 
-  const InfoAdmin({Key key, this.id, this.name, this.image}) : super(key: key);
+  const InfoAdmin({
+    Key key,
+    this.id,
+    this.name,
+    this.image,
+    this.city,
+    this.address,
+    this.phone,
+    this.totalprice,
+    this.quantity,
+  }) : super(key: key);
 
   @override
   State<InfoAdmin> createState() => _InfoAdminState();
@@ -19,6 +36,7 @@ class InfoAdmin extends StatefulWidget {
 class _InfoAdminState extends State<InfoAdmin> {
   @override
   Widget build(BuildContext context) {
+    var formatter = NumberFormat('#,###');
     print(widget.id);
     return Scaffold(
       backgroundColor: Colors.white,
@@ -67,13 +85,100 @@ class _InfoAdminState extends State<InfoAdmin> {
             ),
           ),
           SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xff444444),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                child: Container(
+                  child: ListView(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.pin_drop,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            widget.city,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Divider(
+                          thickness: 2,
+                          color: Colors.white.withOpacity(0.5),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.home,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            widget.address,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Divider(
+                          thickness: 2,
+                          color: Colors.white.withOpacity(0.5),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.phone,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            widget.phone,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 5),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Container(
                 decoration: BoxDecoration(
                   color: Color(0xff444444),
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -108,7 +213,6 @@ class _InfoAdminState extends State<InfoAdmin> {
                                         .doc(widget.id)
                                         .collection('Менің себетім')
                                         .snapshots(),
-
                                   ),
                                 ),
                               ],
@@ -122,6 +226,68 @@ class _InfoAdminState extends State<InfoAdmin> {
               ),
             ),
           ),
+          SizedBox(height: 10),
+          Container(
+            height: 50,
+            width: double.infinity,
+            color: Colors.white24,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Дана: ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        widget.quantity.toString(),
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 7),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Барлығы: ',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '${formatter.format(widget.totalprice.toInt()) + ' ₸'}'
+                            .replaceAll(',', ' '),
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

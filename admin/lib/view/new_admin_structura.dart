@@ -366,6 +366,11 @@ class TestHome extends StatelessWidget {
                       id: data['Id'],
                       name: data['FullName'],
                       image: data['Img'],
+                      city: data['City'],
+                      address: data['Address'],
+                      phone: data['Phone'],
+                      totalprice: data['TotalPrice'],
+                      quantity: data['Quantity'],
                     ),
                   );
                 },

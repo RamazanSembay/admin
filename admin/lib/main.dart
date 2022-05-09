@@ -38,8 +38,8 @@ class Application extends StatelessWidget {
             if (snapshot.hasData) {
               return NewAdminStructura();
             } else {
-              // return Admin();
-              return NewAdminStructura();
+              return Admin();
+              // return NewAdminStructura();
             }
           },
         ),
