@@ -1,5 +1,6 @@
 import 'package:admin/provider/cart_provider.dart';
 import 'package:admin/view/admin.dart';
+import 'package:admin/view/navigation_structura.dart';
 import 'package:admin/view/new_admin_structura.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,7 +37,8 @@ class Application extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return NewAdminStructura();
+              // return NewAdminStructura();
+              return NavigationStructura();
             } else {
               return Admin();
               // return NewAdminStructura();
