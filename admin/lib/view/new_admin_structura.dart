@@ -147,7 +147,7 @@ class Home_Page extends StatelessWidget {
                         Count(
                           future: FirebaseFirestore.instance
                               .collection('Users')
-                              .get(),
+                              .snapshots(),
                         ),
                         Text(
                           'Тіркелгендер',
@@ -184,7 +184,7 @@ class Home_Page extends StatelessWidget {
                         Count(
                           future: FirebaseFirestore.instance
                               .collection('Менің себетім')
-                              .get(),
+                              .snapshots(),
                         ),
                         Text(
                           'Тапсырыс бергендер',
@@ -295,14 +295,14 @@ class Ordered_By extends StatelessWidget {
 
 // Количество
 class Count extends StatelessWidget {
-  final Future<QuerySnapshot> future;
+  final Stream<QuerySnapshot> future;
 
   const Count({Key key, this.future}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(
-      future: future,
+    return StreamBuilder<QuerySnapshot>(
+      stream: future,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return const Text('Something went wrong');

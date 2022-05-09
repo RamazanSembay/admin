@@ -1,3 +1,4 @@
+import 'package:admin/provider/cart_provider.dart';
 import 'package:admin/view/admin.dart';
 import 'package:admin/view/new_admin_structura.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,6 +23,9 @@ class Application extends StatelessWidget {
         ChangeNotifierProvider<AdminLoginProvider>(
           create: (context) => (AdminLoginProvider()),
         ),
+        ChangeNotifierProvider<CartProvider>(
+          create: (context) => (CartProvider()),
+        ),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -34,7 +38,8 @@ class Application extends StatelessWidget {
             if (snapshot.hasData) {
               return NewAdminStructura();
             } else {
-              return Admin();
+              // return Admin();
+              return NewAdminStructura();
             }
           },
         ),

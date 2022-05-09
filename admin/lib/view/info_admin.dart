@@ -1,9 +1,11 @@
+import 'package:admin/provider/cart_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class InfoAdmin extends StatelessWidget {
+class InfoAdmin extends StatefulWidget {
   final String id;
   final String name;
   final String image;
@@ -11,8 +13,13 @@ class InfoAdmin extends StatelessWidget {
   const InfoAdmin({Key key, this.id, this.name, this.image}) : super(key: key);
 
   @override
+  State<InfoAdmin> createState() => _InfoAdminState();
+}
+
+class _InfoAdminState extends State<InfoAdmin> {
+  @override
   Widget build(BuildContext context) {
-    print(id);
+    print(widget.id);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -41,7 +48,7 @@ class InfoAdmin extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(5.0),
                   child: Image.network(
-                    image,
+                    widget.image,
                     height: 50.0,
                     width: 50.0,
                     fit: BoxFit.cover,
@@ -49,7 +56,7 @@ class InfoAdmin extends StatelessWidget {
                 ),
                 SizedBox(width: 15),
                 Text(
-                  name,
+                  widget.name,
                   style: TextStyle(
                     fontSize: 18,
                     color: Color(0xff444444),
@@ -95,11 +102,13 @@ class InfoAdmin extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: List(
+                                    id: widget.id,
                                     future: FirebaseFirestore.instance
                                         .collection('Менің себетім')
-                                        .doc(id)
+                                        .doc(widget.id)
                                         .collection('Менің себетім')
                                         .snapshots(),
+
                                   ),
                                 ),
                               ],
@@ -128,9 +137,11 @@ class InfoAdmin extends StatelessWidget {
                       onTap: () {
                         FirebaseFirestore.instance
                             .collection('Менің себетім')
-                            .doc(FirebaseAuth.instance.currentUser.uid)
+                            .doc(widget.id)
                             .delete();
+
                         Navigator.pop(context);
+                        print('Delete: ' + widget.id);
                       },
                       child: Container(
                         height: 50,
@@ -170,14 +181,22 @@ class InfoAdmin extends StatelessWidget {
   }
 }
 
-class List extends StatelessWidget {
+class List extends StatefulWidget {
+  final String id;
   final Stream<QuerySnapshot> future;
 
-  const List({Key key, this.future}) : super(key: key);
+  const List({Key key, this.id, this.future}) : super(key: key);
+
+  @override
+  State<List> createState() => _ListState();
+}
+
+class _ListState extends State<List> {
   @override
   Widget build(BuildContext context) {
+    print(widget.id);
     return StreamBuilder<QuerySnapshot>(
-      stream: future,
+      stream: widget.future,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return const Text('Something went wrong');
@@ -254,10 +273,27 @@ class List extends StatelessWidget {
                       onTap: () {
                         FirebaseFirestore.instance
                             .collection('Менің себетім')
-                            .doc(FirebaseAuth.instance.currentUser.uid)
+                            .doc(widget.id)
                             .collection('Менің себетім')
-                            .doc(data.id)
+                            .doc(data['Id'])
                             .delete();
+
+                        Get.snackbar(
+                          "Өшіру",
+                          "Өшірдім",
+                          icon: Icon(Icons.delete, color: Colors.white),
+                          snackPosition: SnackPosition.TOP,
+                          backgroundColor: Color(0xff444444),
+                          borderRadius: 5,
+                          margin: EdgeInsets.all(15),
+                          colorText: Colors.white,
+                          duration: Duration(seconds: 3),
+                          isDismissible: true,
+                          dismissDirection: DismissDirection.horizontal,
+                          forwardAnimationCurve: Curves.easeOutBack,
+                        );
+
+                        print('Delete: ' + data['Id']);
                       },
                       child: Icon(
                         Icons.delete,
@@ -275,3 +311,103 @@ class List extends StatelessWidget {
     );
   }
 }
+
+
+// return ListView.builder(
+    //   shrinkWrap: true,
+    //   physics: BouncingScrollPhysics(),
+    //   scrollDirection: Axis.vertical,
+    //   itemCount: cartProvider.getCartList.length,
+    //   itemBuilder: (context, index) {
+    //     var data = cartProvider.cartList[index];
+
+    //     return Padding(
+    //       padding: const EdgeInsets.only(bottom: 15),
+    //       child: Container(
+    //         height: 70,
+    //         width: double.infinity,
+    //         child: Row(
+    //           children: [
+    //             Expanded(
+    //               flex: 1,
+    //               child: Column(
+    //                 mainAxisAlignment: MainAxisAlignment.center,
+    //                 crossAxisAlignment: CrossAxisAlignment.center,
+    //                 children: [
+    //                   Image.network(
+    //                     data.image,
+    //                     height: 50.0,
+    //                     width: 50.0,
+    //                     fit: BoxFit.fitHeight,
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //             Expanded(
+    //               child: Column(
+    //                 mainAxisAlignment: MainAxisAlignment.center,
+    //                 crossAxisAlignment: CrossAxisAlignment.start,
+    //                 children: [
+    //                   Text(
+    //                     data.name,
+    //                     style: TextStyle(
+    //                       fontSize: 15,
+    //                       color: Colors.white,
+    //                       fontWeight: FontWeight.w500,
+    //                     ),
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //             Expanded(
+    //               child: Column(
+    //                 mainAxisAlignment: MainAxisAlignment.center,
+    //                 crossAxisAlignment: CrossAxisAlignment.center,
+    //                 children: [
+    //                   Text(
+    //                     data.quantity.toString() + ' дана',
+    //                     style: TextStyle(
+    //                       fontSize: 15,
+    //                       color: Colors.white,
+    //                       fontWeight: FontWeight.w500,
+    //                     ),
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //             InkWell(
+    //               onTap: () {
+    //                 FirebaseFirestore.instance
+    //                     .collection('Менің себетім')
+    //                     .doc(FirebaseAuth.instance.currentUser.uid)
+    //                     .collection('Менің себетім')
+    //                     .doc(data.id)
+    //                     .delete();
+
+    //                 Get.snackbar(
+    //                   "Өшіру",
+    //                   "Өшірдім",
+    //                   icon: Icon(Icons.delete, color: Colors.white),
+    //                   snackPosition: SnackPosition.TOP,
+    //                   backgroundColor: Color(0xff444444),
+    //                   borderRadius: 5,
+    //                   margin: EdgeInsets.all(15),
+    //                   colorText: Colors.white,
+    //                   duration: Duration(seconds: 3),
+    //                   isDismissible: true,
+    //                   dismissDirection: DismissDirection.horizontal,
+    //                   forwardAnimationCurve: Curves.easeOutBack,
+    //                 );
+    //               },
+    //               child: Icon(
+    //                 Icons.delete,
+    //                 size: 24,
+    //                 color: Colors.white,
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //     );
+    //   },
+    // );
