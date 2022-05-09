@@ -1,5 +1,6 @@
 import 'package:admin/view/new_add_admin_structura.dart';
 import 'package:admin/view/new_admin_structura.dart';
+import 'package:admin/view/new_delete_admin_structura.dart';
 import 'package:flutter/material.dart';
 
 class NavigationStructura extends StatefulWidget {
@@ -53,6 +54,7 @@ class _NavigationStructuraState extends State<NavigationStructura> {
               children: [
                 NewAdminStructura(),
                 NewAddAdminStructura(),
+                NewDeleteAdminStructura(),
               ],
             ),
           ),
@@ -103,10 +105,17 @@ class _BottomState extends State<Bottom> {
               },
             ),
             BottomTabs(
-              image: 'icon/bag.png',
+              image: 'icon/add.png',
               selected: _selectedTab == 1 ? true : false,
               onPressed: () {
                 widget.tabPressed(1);
+              },
+            ),
+            BottomTabs(
+              image: 'icon/delete.png',
+              selected: _selectedTab == 2 ? true : false,
+              onPressed: () {
+                widget.tabPressed(2);
               },
             ),
           ],
@@ -135,7 +144,7 @@ class BottomTabs extends StatelessWidget {
           border: Border(
             bottom: BorderSide(
               color: _selected ? Colors.amber : Colors.transparent,
-              width: 3,
+              width: 4,
             ),
           ),
         ),

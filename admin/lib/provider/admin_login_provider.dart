@@ -1,3 +1,4 @@
+import 'package:admin/view/navigation_structura.dart';
 import 'package:admin/view/new_admin_structura.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -48,7 +49,7 @@ class AdminLoginProvider with ChangeNotifier {
             );
             email.text = '';
             password.text = '';
-            Get.to(NewAdminStructura());
+            Get.to(NavigationStructura());
           } on FirebaseAuthException catch (e) {
             if (e.code == "week-password") {
               Get.snackbar(
