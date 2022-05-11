@@ -80,7 +80,7 @@ class _BottomState extends State<Bottom> {
   Widget build(BuildContext context) {
     _selectedTab = widget.selectedTab ?? 0;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 30),
       child: Container(
         decoration: BoxDecoration(
           color: Color(0xff444444),
