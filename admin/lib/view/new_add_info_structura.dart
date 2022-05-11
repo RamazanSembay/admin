@@ -206,26 +206,6 @@ class NewInfo extends StatelessWidget {
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.production_quantity_limits,
-                                size: 15,
-                                color: Color(0xff888888),
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                '25' + 'дана',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color(0xff444444),
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                            ],
-                          ),
                         ],
                       ),
                     ),

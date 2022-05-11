@@ -60,7 +60,7 @@ class NewAddAdminStructura extends StatelessWidget {
                           NewAddInfoStructura(
                             title: 'Apple',
                             image:
-                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
                             stream: FirebaseFirestore.instance
                                 .collection('Apple Телефондары')
                                 .snapshots(),
@@ -118,7 +118,7 @@ class NewAddAdminStructura extends StatelessWidget {
                       onTap: () {
                         Get.to(
                           NewAddInfoStructura(
-                            title: 'Realme',
+                            title: 'OnePlus',
                             image:
                                 'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
                             stream: FirebaseFirestore.instance
@@ -138,7 +138,7 @@ class NewAddAdminStructura extends StatelessWidget {
                       onTap: () {
                         Get.to(
                           NewAddInfoStructura(
-                            title: 'Realme',
+                            title: 'Oppo',
                             image:
                                 'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
                             stream: FirebaseFirestore.instance
@@ -191,7 +191,7 @@ class NewAddAdminStructura extends StatelessWidget {
                           NewAddInfoStructura(
                             title: 'Apple',
                             image:
-                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
                             stream: FirebaseFirestore.instance
                                 .collection('Apple Ноутбуктері')
                                 .snapshots(),
@@ -282,7 +282,7 @@ class NewAddAdminStructura extends StatelessWidget {
                           NewAddInfoStructura(
                             title: 'Apple',
                             image:
-                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
                             stream: FirebaseFirestore.instance
                                 .collection('Apple Құлаққаптары')
                                 .snapshots(),
@@ -353,7 +353,7 @@ class NewAddAdminStructura extends StatelessWidget {
                           NewAddInfoStructura(
                             title: 'Apple',
                             image:
-                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
                             stream: FirebaseFirestore.instance
                                 .collection('Apple Сағаттар')
                                 .snapshots(),
