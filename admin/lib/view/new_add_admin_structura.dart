@@ -1,4 +1,5 @@
 import 'package:admin/view/new_add_info_structura.dart';
+import 'package:admin/view/phone/new_info_apple_phone_structura.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
@@ -15,13 +16,30 @@ class NewAddAdminStructura extends StatelessWidget {
         children: [
           Padding(
             padding:
-                const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 25),
+                const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 10),
             child: Text(
               'Жаңа ақпарат қосу',
               style: TextStyle(
                 fontSize: 24,
                 color: Color(0xff444444),
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Montserrat',
+              ),
+            ),
+          ),
+          Divider(
+            thickness: 1,
+            color: Color(0xff444444).withOpacity(0.5),
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 15),
+            child: Text(
+              'Телефондар',
+              style: TextStyle(
+                fontSize: 18,
+                color: Color(0xff444444),
+                fontWeight: FontWeight.w500,
                 fontFamily: 'Montserrat',
               ),
             ),
@@ -38,7 +56,7 @@ class NewAddAdminStructura extends StatelessWidget {
                           'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
                       onTap: () {
                         Get.to(
-                          NewAddInfoStructura(
+                          NewInfoApplePhoneStructura(
                             title: 'Apple',
                             image:
                                 'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
