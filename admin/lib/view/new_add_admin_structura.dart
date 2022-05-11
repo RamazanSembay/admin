@@ -398,7 +398,7 @@ class NewInfo extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Container(
         height: 250,
-        width: 220,
+        width: 200,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Color(0xff4444444),
