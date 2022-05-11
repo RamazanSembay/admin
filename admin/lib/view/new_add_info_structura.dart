@@ -7,12 +7,14 @@ class NewAddInfoStructura extends StatelessWidget {
   final String title;
   final String image;
   final Stream<QuerySnapshot> stream;
+  final String collectionPath;
 
   const NewAddInfoStructura({
     Key key,
     this.title,
     this.image,
     this.stream,
+    this.collectionPath,
   }) : super(key: key);
 
   @override
@@ -73,6 +75,7 @@ class NewAddInfoStructura extends StatelessWidget {
               children: [
                 NewFuture(
                   stream: stream,
+                  collectionPath: collectionPath,
                 ),
               ],
             ),
@@ -238,9 +241,13 @@ class NewInfo extends StatelessWidget {
 
 class NewFuture extends StatelessWidget {
   final Stream<QuerySnapshot> stream;
-  final CollectionReference collection;
+  final String collectionPath;
 
-  const NewFuture({Key key, this.stream, this.collection}) : super(key: key);
+  const NewFuture({
+    Key key,
+    this.stream,
+    this.collectionPath,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -257,25 +264,27 @@ class NewFuture extends StatelessWidget {
           );
         }
 
-        return Column(
-          children: [
-            StaggeredGridView.countBuilder(
-              shrinkWrap: true,
-              crossAxisCount: 2,
-              itemCount: snapshot.data.docs.length,
-              staggeredTileBuilder: (index) => StaggeredTile.fit(1),
-              mainAxisSpacing: 15.0,
-              crossAxisSpacing: 15.0,
-              itemBuilder: (context, index) {
-                var data = snapshot.data.docs[index];
-                return Product(
-                  name: data['Название'],
-                  image: data['Картинка'],
-                  delete: () {},
-                );
+        return StaggeredGridView.countBuilder(
+          shrinkWrap: true,
+          crossAxisCount: 2,
+          itemCount: snapshot.data.docs.length,
+          staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+          mainAxisSpacing: 15.0,
+          crossAxisSpacing: 15.0,
+          itemBuilder: (context, index) {
+            var data = snapshot.data.docs[index];
+            return Product(
+              name: data['Название'],
+              image: data['Картинка'],
+              delete: () {
+                FirebaseFirestore.instance
+                    .collection(collectionPath)
+                    .doc(data['Id'])
+                    .delete();
+                print('Delete: ' + data['Id']);
               },
-            ),
-          ],
+            );
+          },
         );
       },
     );

@@ -60,9 +60,6 @@ class NewAddAdminStructura extends StatelessWidget {
                             title: 'Apple',
                             image:
                                 'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Apple Телефондары')
-                                .snapshots(),
                           ),
                         );
                       },
@@ -82,6 +79,7 @@ class NewAddAdminStructura extends StatelessWidget {
                             stream: FirebaseFirestore.instance
                                 .collection('Samsung Телефондары')
                                 .snapshots(),
+                            collectionPath: 'Samsung Телефондары',
                           ),
                         );
                       },

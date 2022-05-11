@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
@@ -6,13 +7,11 @@ import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 class NewInfoApplePhoneStructura extends StatelessWidget {
   final String title;
   final String image;
-  final Stream<QuerySnapshot> stream;
 
   const NewInfoApplePhoneStructura({
     Key key,
     this.title,
     this.image,
-    this.stream,
   }) : super(key: key);
 
   @override
@@ -71,9 +70,7 @@ class NewInfoApplePhoneStructura extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                NewAppleFuture(
-                  stream: stream,
-                ),
+                NewAppleFuture(),
               ],
             ),
           ),
@@ -237,15 +234,12 @@ class NewInfo extends StatelessWidget {
 }
 
 class NewAppleFuture extends StatelessWidget {
-  final Stream<QuerySnapshot> stream;
-  final CollectionReference collection;
-
-  const NewAppleFuture({Key key, this.stream, this.collection})
-      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: stream,
+      stream: FirebaseFirestore.instance
+          .collection('Apple Телефондары')
+          .snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Text('Something went wrong');
@@ -272,7 +266,9 @@ class NewAppleFuture extends StatelessWidget {
                 return Product(
                   name: data['Название'],
                   image: data['Картинка'],
-                  delete: () {},
+                  delete: () {
+                    print('Delete: ' + data['Id']);
+                  },
                 );
               },
             ),
