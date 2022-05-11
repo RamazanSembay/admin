@@ -8,8 +8,12 @@ class NewAddInfoStructura extends StatelessWidget {
   final String image;
   final Stream<QuerySnapshot> stream;
 
-  const NewAddInfoStructura({Key key, this.title, this.image, this.stream})
-      : super(key: key);
+  const NewAddInfoStructura({
+    Key key,
+    this.title,
+    this.image,
+    this.stream,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -234,8 +238,9 @@ class NewInfo extends StatelessWidget {
 
 class NewFuture extends StatelessWidget {
   final Stream<QuerySnapshot> stream;
+  final CollectionReference collection;
 
-  const NewFuture({Key key, this.stream}) : super(key: key);
+  const NewFuture({Key key, this.stream, this.collection}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -266,6 +271,7 @@ class NewFuture extends StatelessWidget {
                 return Product(
                   name: data['Название'],
                   image: data['Картинка'],
+                  delete: () {},
                 );
               },
             ),
@@ -279,8 +285,10 @@ class NewFuture extends StatelessWidget {
 class Product extends StatelessWidget {
   final String name;
   final String image;
+  final Function delete;
 
-  const Product({Key key, this.name, this.image}) : super(key: key);
+  const Product({Key key, this.name, this.image, this.delete})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -326,30 +334,33 @@ class Product extends StatelessWidget {
                     fontFamily: 'Montserrat',
                   ),
                 ),
-                Container(
-                  height: 30,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(
-                      color: Color(0xffB70F0F),
-                      width: 2,
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Өшіру',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Color(0xffB70F0F),
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Montserrat',
-                        ),
+                InkWell(
+                  onTap: delete,
+                  child: Container(
+                    height: 30,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(
+                        color: Color(0xffB70F0F),
+                        width: 2,
                       ),
-                    ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Өшіру',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Color(0xffB70F0F),
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Montserrat',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
