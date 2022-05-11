@@ -34,10 +34,36 @@ class NewAddInfoStructura extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color(0xff444444),
+                border: Border.all(
+                  color: Color(0xff444444),
+                  width: 2.5,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Қосу',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xff444444),
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Divider(
+              thickness: 1,
+              color: Color(0xff444444).withOpacity(0.5),
+            ),
+          ),
+
           Expanded(
             child: Column(
               children: [
