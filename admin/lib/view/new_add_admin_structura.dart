@@ -30,6 +30,7 @@ class NewAddAdminStructura extends StatelessWidget {
               children: [
                 Wrap(
                   children: [
+                    // Apple
                     NewInfo(
                       name: 'Apple',
                       image:
@@ -47,6 +48,8 @@ class NewAddAdminStructura extends StatelessWidget {
                         );
                       },
                     ),
+
+                    // Samsung
                     NewInfo(
                       name: 'Samsung',
                       image:
@@ -59,6 +62,63 @@ class NewAddAdminStructura extends StatelessWidget {
                                 'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
                             stream: FirebaseFirestore.instance
                                 .collection('Samsung Телефондары')
+                                .snapshots(),
+                          ),
+                        );
+                      },
+                    ),
+
+                    // Realme
+                    NewInfo(
+                      name: 'Realme',
+                      image:
+                          'https://i.pinimg.com/564x/54/b4/04/54b404e4b57dbe1e20a098088409c077.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Realme',
+                            image:
+                                'https://i.pinimg.com/564x/54/b4/04/54b404e4b57dbe1e20a098088409c077.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Realme Телефондары')
+                                .snapshots(),
+                          ),
+                        );
+                      },
+                    ),
+
+                    // OnePlus
+                    NewInfo(
+                      name: 'OnePlus',
+                      image:
+                          'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Realme',
+                            image:
+                                'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('OnePlus Телефондары')
+                                .snapshots(),
+                          ),
+                        );
+                      },
+                    ),
+
+                    // Oppo
+                    NewInfo(
+                      name: 'Oppo',
+                      image:
+                          'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Realme',
+                            image:
+                                'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Oppo Телефондары')
                                 .snapshots(),
                           ),
                         );
@@ -91,7 +151,7 @@ class NewInfo extends StatelessWidget {
         width: 220,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.deepPurple,
+          color: Color(0xff4444444),
           boxShadow: [
             BoxShadow(
               color: Color(0xff999999).withOpacity(0.25),
