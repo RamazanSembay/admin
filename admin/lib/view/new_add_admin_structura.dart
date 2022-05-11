@@ -1,4 +1,5 @@
 import 'package:admin/view/new_add_info_structura.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,6 +40,9 @@ class NewAddAdminStructura extends StatelessWidget {
                             title: 'Apple',
                             image:
                                 'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Apple Телефондары')
+                                .snapshots(),
                           ),
                         );
                       },
@@ -53,6 +57,9 @@ class NewAddAdminStructura extends StatelessWidget {
                             title: 'Samsung',
                             image:
                                 'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Samsung Телефондары')
+                                .snapshots(),
                           ),
                         );
                       },

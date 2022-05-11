@@ -6,8 +6,9 @@ import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 class NewAddInfoStructura extends StatelessWidget {
   final String title;
   final String image;
+  final Stream<QuerySnapshot> stream;
 
-  const NewAddInfoStructura({Key key, this.title, this.image})
+  const NewAddInfoStructura({Key key, this.title, this.image, this.stream})
       : super(key: key);
 
   @override
@@ -63,14 +64,16 @@ class NewAddInfoStructura extends StatelessWidget {
               color: Color(0xff444444).withOpacity(0.5),
             ),
           ),
-
           Expanded(
             child: Column(
               children: [
-                NewFuture(),
+                NewFuture(
+                  stream: stream,
+                ),
               ],
             ),
           ),
+          SizedBox(height: 20),
         ],
       ),
     );
@@ -230,12 +233,13 @@ class NewInfo extends StatelessWidget {
 }
 
 class NewFuture extends StatelessWidget {
+  final Stream<QuerySnapshot> stream;
+
+  const NewFuture({Key key, this.stream}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance
-          .collection('Apple Телефондары')
-          .snapshots(),
+      stream: stream,
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Text('Something went wrong');
