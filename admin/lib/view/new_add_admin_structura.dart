@@ -152,6 +152,95 @@ class NewAddAdminStructura extends StatelessWidget {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Divider(
+              thickness: 1,
+              color: Color(0xff444444).withOpacity(0.5),
+            ),
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 15),
+            child: Text(
+              'Ноутбуктері',
+              style: TextStyle(
+                fontSize: 18,
+                color: Color(0xff444444),
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Montserrat',
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                Wrap(
+                  children: [
+                    // Apple
+                    NewInfo(
+                      name: 'Apple',
+                      image:
+                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Apple',
+                            image:
+                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Apple Ноутбуктері')
+                                .snapshots(),
+                            collectionPath: 'Apple Ноутбуктері',
+                          ),
+                        );
+                      },
+                    ),
+
+                    // Lenovo
+                    NewInfo(
+                      name: 'Lenovo',
+                      image:
+                          'https://i.pinimg.com/564x/f1/bd/b2/f1bdb2137cc778c11b6c87f78a47e536.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Lenovo',
+                            image:
+                                'https://i.pinimg.com/564x/f1/bd/b2/f1bdb2137cc778c11b6c87f78a47e536.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Lenovo Ноутбуктері')
+                                .snapshots(),
+                            collectionPath: 'Lenovo Ноутбуктері',
+                          ),
+                        );
+                      },
+                    ),
+
+                    // Hp
+                    NewInfo(
+                      name: 'Hp',
+                      image:
+                          'https://i.pinimg.com/564x/12/76/93/1276936eb7e9e7c46063845ad6cd533f.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Hp',
+                            image:
+                                'https://i.pinimg.com/564x/12/76/93/1276936eb7e9e7c46063845ad6cd533f.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Hp Ноутбуктері')
+                                .snapshots(),
+                            collectionPath: 'Hp Ноутбуктері',
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
