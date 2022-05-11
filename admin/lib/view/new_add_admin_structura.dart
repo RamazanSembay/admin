@@ -1,5 +1,4 @@
 import 'package:admin/view/new_add_info_structura.dart';
-import 'package:admin/view/phone/new_info_apple_phone_structura.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
@@ -56,10 +55,14 @@ class NewAddAdminStructura extends StatelessWidget {
                           'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
                       onTap: () {
                         Get.to(
-                          NewInfoApplePhoneStructura(
+                          NewAddInfoStructura(
                             title: 'Apple',
                             image:
-                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Apple Телефондары')
+                                .snapshots(),
+                            collectionPath: 'Apple Телефондары',
                           ),
                         );
                       },
@@ -99,6 +102,7 @@ class NewAddAdminStructura extends StatelessWidget {
                             stream: FirebaseFirestore.instance
                                 .collection('Realme Телефондары')
                                 .snapshots(),
+                            collectionPath: 'Realme Телефондары',
                           ),
                         );
                       },
@@ -118,6 +122,7 @@ class NewAddAdminStructura extends StatelessWidget {
                             stream: FirebaseFirestore.instance
                                 .collection('OnePlus Телефондары')
                                 .snapshots(),
+                            collectionPath: 'OnePlus Телефондары',
                           ),
                         );
                       },
@@ -137,6 +142,7 @@ class NewAddAdminStructura extends StatelessWidget {
                             stream: FirebaseFirestore.instance
                                 .collection('Oppo Телефондары')
                                 .snapshots(),
+                            collectionPath: 'Oppo Телефондары',
                           ),
                         );
                       },

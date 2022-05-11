@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
@@ -282,6 +283,21 @@ class NewFuture extends StatelessWidget {
                     .doc(data['Id'])
                     .delete();
                 print('Delete: ' + data['Id']);
+
+                Get.snackbar(
+                  "Өшіру",
+                  "Клиент базасынан өшірдім, " + data['Название'],
+                  icon: Icon(Icons.delete, color: Colors.white),
+                  snackPosition: SnackPosition.TOP,
+                  backgroundColor: Color(0xff444444),
+                  borderRadius: 5,
+                  margin: EdgeInsets.all(15),
+                  colorText: Colors.white,
+                  duration: Duration(seconds: 3),
+                  isDismissible: true,
+                  dismissDirection: DismissDirection.horizontal,
+                  forwardAnimationCurve: Curves.easeOutBack,
+                );
               },
             );
           },
