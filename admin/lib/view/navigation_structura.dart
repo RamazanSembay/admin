@@ -112,7 +112,7 @@ class _BottomState extends State<Bottom> {
               },
             ),
             BottomTabs(
-              image: 'icon/delete.png',
+              image: 'icon/person.png',
               selected: _selectedTab == 2 ? true : false,
               onPressed: () {
                 widget.tabPressed(2);
