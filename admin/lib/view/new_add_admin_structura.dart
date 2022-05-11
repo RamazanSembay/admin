@@ -30,6 +30,8 @@ class NewAddAdminStructura extends StatelessWidget {
             thickness: 1,
             color: Color(0xff444444).withOpacity(0.5),
           ),
+
+          // Телефондар
           Padding(
             padding:
                 const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 15),
@@ -159,6 +161,8 @@ class NewAddAdminStructura extends StatelessWidget {
               color: Color(0xff444444).withOpacity(0.5),
             ),
           ),
+
+          // Ноутбуктер
           Padding(
             padding:
                 const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 15),
@@ -232,6 +236,148 @@ class NewAddAdminStructura extends StatelessWidget {
                                 .collection('Hp Ноутбуктері')
                                 .snapshots(),
                             collectionPath: 'Hp Ноутбуктері',
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Divider(
+              thickness: 1,
+              color: Color(0xff444444).withOpacity(0.5),
+            ),
+          ),
+
+          // Құлаққаптар
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 15),
+            child: Text(
+              'Құлаққаптар',
+              style: TextStyle(
+                fontSize: 18,
+                color: Color(0xff444444),
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Montserrat',
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                Wrap(
+                  children: [
+                    // Apple
+                    NewInfo(
+                      name: 'Apple',
+                      image:
+                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Apple',
+                            image:
+                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Apple Құлаққаптары')
+                                .snapshots(),
+                            collectionPath: 'Apple Құлаққаптары',
+                          ),
+                        );
+                      },
+                    ),
+
+                    // Xiaomi
+                    NewInfo(
+                      name: 'Xiaomi',
+                      image:
+                          'https://i.pinimg.com/564x/21/c1/40/21c1404894ab3b2d6c35a31c9669c7af.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Xiaomi',
+                            image:
+                                'https://i.pinimg.com/564x/21/c1/40/21c1404894ab3b2d6c35a31c9669c7af.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Xiaomi Құлаққаптары')
+                                .snapshots(),
+                            collectionPath: 'Xiaomi Құлаққаптары',
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Divider(
+              thickness: 1,
+              color: Color(0xff444444).withOpacity(0.5),
+            ),
+          ),
+
+          // Сағаттар
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 15),
+            child: Text(
+              'Сағаттар',
+              style: TextStyle(
+                fontSize: 18,
+                color: Color(0xff444444),
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Montserrat',
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                Wrap(
+                  children: [
+                    // Apple
+                    NewInfo(
+                      name: 'Apple',
+                      image:
+                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Apple',
+                            image:
+                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Apple Сағаттар')
+                                .snapshots(),
+                            collectionPath: 'Apple Сағаттар',
+                          ),
+                        );
+                      },
+                    ),
+
+                    // Samsung
+                    NewInfo(
+                      name: 'Samsung',
+                      image:
+                          'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                      onTap: () {
+                        Get.to(
+                          NewAddInfoStructura(
+                            title: 'Samsung',
+                            image:
+                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                            stream: FirebaseFirestore.instance
+                                .collection('Samsung Сағаттар')
+                                .snapshots(),
+                            collectionPath: 'Samsung Сағаттар',
                           ),
                         );
                       },
