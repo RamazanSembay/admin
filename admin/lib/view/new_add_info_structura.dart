@@ -71,15 +71,13 @@ class NewAddInfoStructura extends StatelessWidget {
               color: Color(0xff444444).withOpacity(0.5),
             ),
           ),
-          Expanded(
-            child: Column(
-              children: [
-                NewFuture(
-                  stream: stream,
-                  collectionPath: collectionPath,
-                ),
-              ],
-            ),
+          Column(
+            children: [
+              NewFuture(
+                stream: stream,
+                collectionPath: collectionPath,
+              ),
+            ],
           ),
           SizedBox(height: 20),
         ],

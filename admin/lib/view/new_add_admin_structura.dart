@@ -45,114 +45,112 @@ class NewAddAdminStructura extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Wrap(
-                  children: [
-                    // Apple
-                    NewInfo(
-                      name: 'Apple',
-                      image:
-                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Apple',
-                            image:
-                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Apple Телефондары')
-                                .snapshots(),
-                            collectionPath: 'Apple Телефондары',
-                          ),
-                        );
-                      },
-                    ),
+          Column(
+            children: [
+              Wrap(
+                children: [
+                  // Apple
+                  NewInfo(
+                    name: 'Apple',
+                    image:
+                        'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Apple',
+                          image:
+                              'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Apple Телефондары')
+                              .snapshots(),
+                          collectionPath: 'Apple Телефондары',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Samsung
-                    NewInfo(
-                      name: 'Samsung',
-                      image:
-                          'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Samsung',
-                            image:
-                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Samsung Телефондары')
-                                .snapshots(),
-                            collectionPath: 'Samsung Телефондары',
-                          ),
-                        );
-                      },
-                    ),
+                  // Samsung
+                  NewInfo(
+                    name: 'Samsung',
+                    image:
+                        'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Samsung',
+                          image:
+                              'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Samsung Телефондары')
+                              .snapshots(),
+                          collectionPath: 'Samsung Телефондары',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Realme
-                    NewInfo(
-                      name: 'Realme',
-                      image:
-                          'https://i.pinimg.com/564x/54/b4/04/54b404e4b57dbe1e20a098088409c077.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Realme',
-                            image:
-                                'https://i.pinimg.com/564x/54/b4/04/54b404e4b57dbe1e20a098088409c077.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Realme Телефондары')
-                                .snapshots(),
-                            collectionPath: 'Realme Телефондары',
-                          ),
-                        );
-                      },
-                    ),
+                  // Realme
+                  NewInfo(
+                    name: 'Realme',
+                    image:
+                        'https://i.pinimg.com/564x/54/b4/04/54b404e4b57dbe1e20a098088409c077.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Realme',
+                          image:
+                              'https://i.pinimg.com/564x/54/b4/04/54b404e4b57dbe1e20a098088409c077.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Realme Телефондары')
+                              .snapshots(),
+                          collectionPath: 'Realme Телефондары',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // OnePlus
-                    NewInfo(
-                      name: 'OnePlus',
-                      image:
-                          'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'OnePlus',
-                            image:
-                                'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('OnePlus Телефондары')
-                                .snapshots(),
-                            collectionPath: 'OnePlus Телефондары',
-                          ),
-                        );
-                      },
-                    ),
+                  // OnePlus
+                  NewInfo(
+                    name: 'OnePlus',
+                    image:
+                        'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'OnePlus',
+                          image:
+                              'https://i.pinimg.com/564x/58/c8/50/58c85058ae9fd626cb3ed2d2bdb4e682.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('OnePlus Телефондары')
+                              .snapshots(),
+                          collectionPath: 'OnePlus Телефондары',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Oppo
-                    NewInfo(
-                      name: 'Oppo',
-                      image:
-                          'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Oppo',
-                            image:
-                                'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Oppo Телефондары')
-                                .snapshots(),
-                            collectionPath: 'Oppo Телефондары',
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  // Oppo
+                  NewInfo(
+                    name: 'Oppo',
+                    image:
+                        'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Oppo',
+                          image:
+                              'https://i.pinimg.com/564x/bf/75/01/bf750183d443b7a137db0b4c79065988.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Oppo Телефондары')
+                              .snapshots(),
+                          collectionPath: 'Oppo Телефондары',
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -176,74 +174,72 @@ class NewAddAdminStructura extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Wrap(
-                  children: [
-                    // Apple
-                    NewInfo(
-                      name: 'Apple',
-                      image:
-                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Apple',
-                            image:
-                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Apple Ноутбуктері')
-                                .snapshots(),
-                            collectionPath: 'Apple Ноутбуктері',
-                          ),
-                        );
-                      },
-                    ),
+          Column(
+            children: [
+              Wrap(
+                children: [
+                  // Apple
+                  NewInfo(
+                    name: 'Apple',
+                    image:
+                        'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Apple',
+                          image:
+                              'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Apple Ноутбуктері')
+                              .snapshots(),
+                          collectionPath: 'Apple Ноутбуктері',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Lenovo
-                    NewInfo(
-                      name: 'Lenovo',
-                      image:
-                          'https://i.pinimg.com/564x/f1/bd/b2/f1bdb2137cc778c11b6c87f78a47e536.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Lenovo',
-                            image:
-                                'https://i.pinimg.com/564x/f1/bd/b2/f1bdb2137cc778c11b6c87f78a47e536.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Lenovo Ноутбуктері')
-                                .snapshots(),
-                            collectionPath: 'Lenovo Ноутбуктері',
-                          ),
-                        );
-                      },
-                    ),
+                  // Lenovo
+                  NewInfo(
+                    name: 'Lenovo',
+                    image:
+                        'https://i.pinimg.com/564x/f1/bd/b2/f1bdb2137cc778c11b6c87f78a47e536.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Lenovo',
+                          image:
+                              'https://i.pinimg.com/564x/f1/bd/b2/f1bdb2137cc778c11b6c87f78a47e536.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Lenovo Ноутбуктері')
+                              .snapshots(),
+                          collectionPath: 'Lenovo Ноутбуктері',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Hp
-                    NewInfo(
-                      name: 'Hp',
-                      image:
-                          'https://i.pinimg.com/564x/12/76/93/1276936eb7e9e7c46063845ad6cd533f.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Hp',
-                            image:
-                                'https://i.pinimg.com/564x/12/76/93/1276936eb7e9e7c46063845ad6cd533f.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Hp Ноутбуктері')
-                                .snapshots(),
-                            collectionPath: 'Hp Ноутбуктері',
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  // Hp
+                  NewInfo(
+                    name: 'Hp',
+                    image:
+                        'https://i.pinimg.com/564x/12/76/93/1276936eb7e9e7c46063845ad6cd533f.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Hp',
+                          image:
+                              'https://i.pinimg.com/564x/12/76/93/1276936eb7e9e7c46063845ad6cd533f.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Hp Ноутбуктері')
+                              .snapshots(),
+                          collectionPath: 'Hp Ноутбуктері',
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -267,54 +263,52 @@ class NewAddAdminStructura extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Wrap(
-                  children: [
-                    // Apple
-                    NewInfo(
-                      name: 'Apple',
-                      image:
-                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Apple',
-                            image:
-                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Apple Құлаққаптары')
-                                .snapshots(),
-                            collectionPath: 'Apple Құлаққаптары',
-                          ),
-                        );
-                      },
-                    ),
+          Column(
+            children: [
+              Wrap(
+                children: [
+                  // Apple
+                  NewInfo(
+                    name: 'Apple',
+                    image:
+                        'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Apple',
+                          image:
+                              'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Apple Құлаққаптары')
+                              .snapshots(),
+                          collectionPath: 'Apple Құлаққаптары',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Xiaomi
-                    NewInfo(
-                      name: 'Xiaomi',
-                      image:
-                          'https://i.pinimg.com/564x/21/c1/40/21c1404894ab3b2d6c35a31c9669c7af.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Xiaomi',
-                            image:
-                                'https://i.pinimg.com/564x/21/c1/40/21c1404894ab3b2d6c35a31c9669c7af.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Xiaomi Құлаққаптары')
-                                .snapshots(),
-                            collectionPath: 'Xiaomi Құлаққаптары',
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  // Xiaomi
+                  NewInfo(
+                    name: 'Xiaomi',
+                    image:
+                        'https://i.pinimg.com/564x/21/c1/40/21c1404894ab3b2d6c35a31c9669c7af.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Xiaomi',
+                          image:
+                              'https://i.pinimg.com/564x/21/c1/40/21c1404894ab3b2d6c35a31c9669c7af.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Xiaomi Құлаққаптары')
+                              .snapshots(),
+                          collectionPath: 'Xiaomi Құлаққаптары',
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -338,54 +332,52 @@ class NewAddAdminStructura extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Column(
-              children: [
-                Wrap(
-                  children: [
-                    // Apple
-                    NewInfo(
-                      name: 'Apple',
-                      image:
-                          'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Apple',
-                            image:
-                                'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Apple Сағаттар')
-                                .snapshots(),
-                            collectionPath: 'Apple Сағаттар',
-                          ),
-                        );
-                      },
-                    ),
+          Column(
+            children: [
+              Wrap(
+                children: [
+                  // Apple
+                  NewInfo(
+                    name: 'Apple',
+                    image:
+                        'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Apple',
+                          image:
+                              'https://i.pinimg.com/564x/36/e5/c4/36e5c4455bf294dff5714841a4031264.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Apple Сағаттар')
+                              .snapshots(),
+                          collectionPath: 'Apple Сағаттар',
+                        ),
+                      );
+                    },
+                  ),
 
-                    // Samsung
-                    NewInfo(
-                      name: 'Samsung',
-                      image:
-                          'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
-                      onTap: () {
-                        Get.to(
-                          NewAddInfoStructura(
-                            title: 'Samsung',
-                            image:
-                                'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
-                            stream: FirebaseFirestore.instance
-                                .collection('Samsung Сағаттар')
-                                .snapshots(),
-                            collectionPath: 'Samsung Сағаттар',
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  // Samsung
+                  NewInfo(
+                    name: 'Samsung',
+                    image:
+                        'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                    onTap: () {
+                      Get.to(
+                        NewAddInfoStructura(
+                          title: 'Samsung',
+                          image:
+                              'https://i.pinimg.com/564x/5e/ac/49/5eac4963bdc3551e17545e6002ffc9d5.jpg',
+                          stream: FirebaseFirestore.instance
+                              .collection('Samsung Сағаттар')
+                              .snapshots(),
+                          collectionPath: 'Samsung Сағаттар',
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
