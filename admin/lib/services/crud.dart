@@ -13,7 +13,7 @@ class CrudMethods {
   }
 
   User user = FirebaseAuth.instance.currentUser;
-  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+  CollectionReference users = FirebaseFirestore.instance.collection('Apple Телефондары');
 
   Future<void> addUserData({Map<String, dynamic> data}) {
     return users

@@ -298,12 +298,12 @@ class _NewNewAddStructuraState extends State<NewNewAddStructura> {
                       }
                     }).then((value) {
                       _services.addUserData(data: {
+                        'Id': FirebaseAuth.instance.currentUser.uid,
                         'Картинка': _imageUrl,
                         'Модель': _modelTextController,
                         'Название': _nameTextController,
                         'Цена': _priceTextController,
                       });
-                      Navigator.pop(context);
                     });
                   },
                   child: Container(
