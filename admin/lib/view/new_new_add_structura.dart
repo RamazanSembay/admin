@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
-class NewNewAddStructura extends StatelessWidget {
+class NewNewAddStructura extends StatefulWidget {
+  @override
+  State<NewNewAddStructura> createState() => _NewNewAddStructuraState();
+}
+
+class _NewNewAddStructuraState extends State<NewNewAddStructura> {
+  final _modelTextController = TextEditingController();
+  final _nameTextController = TextEditingController();
+  final _priceTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,6 +86,8 @@ class NewNewAddStructura extends StatelessWidget {
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 15),
                         child: TextFormField(
+                          controller: _modelTextController,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(border: InputBorder.none),
                           style: TextStyle(
                             fontSize: 18,
@@ -122,6 +133,8 @@ class NewNewAddStructura extends StatelessWidget {
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 15),
                         child: TextFormField(
+                          controller: _nameTextController,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(border: InputBorder.none),
                           style: TextStyle(
                             fontSize: 18,
@@ -167,6 +180,8 @@ class NewNewAddStructura extends StatelessWidget {
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 15),
                         child: TextFormField(
+                          controller: _priceTextController,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(border: InputBorder.none),
                           style: TextStyle(
                             fontSize: 18,
@@ -182,26 +197,29 @@ class NewNewAddStructura extends StatelessWidget {
               // Қосу кнопка
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  height: 60,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Color(0xff444444),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Қосу',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 60,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color(0xff444444),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Қосу',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
