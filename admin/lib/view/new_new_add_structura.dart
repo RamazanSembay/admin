@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class NewNewAddStructura extends StatelessWidget {
   @override
@@ -42,69 +43,167 @@ class NewNewAddStructura extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                      bottom: 5,
-                    ),
-                    child: Text(
-                      'Моделі',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff444444),
-                        fontWeight: FontWeight.w600,
+
+              // Моделі
+              Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        bottom: 5,
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      height: 43,
-                      width: double.infinity,
-                      child: TextFormField(
-                        keyboardType: TextInputType.text,
+                      child: Text(
+                        'Моделі',
                         style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
+                          fontSize: 15,
+                          color: Color(0xff444444),
+                          fontWeight: FontWeight.w600,
                         ),
-                        decoration: const InputDecoration(
-                          labelText: 'Mobile Number',
-                          labelStyle: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                          ),
-                          prefixIcon: Padding(
-                            padding: EdgeInsets.only(left: 10, top: 15),
-                            child: Text(
-                              '+91 |',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                              ),
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 1,
-                              color: Colors.black,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 1,
-                              color: Colors.black,
-                            ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: TextFormField(
+                          decoration: InputDecoration(border: InputBorder.none),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
                           ),
                         ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+
+              // Атауы
+              Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        bottom: 5,
+                      ),
+                      child: Text(
+                        'Атауы',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xff444444),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: TextFormField(
+                          decoration: InputDecoration(border: InputBorder.none),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // Бағасы
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        bottom: 5,
+                      ),
+                      child: Text(
+                        'Бағасы',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xff444444),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: TextFormField(
+                          decoration: InputDecoration(border: InputBorder.none),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // Қосу кнопка
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color(0xff444444),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Қосу',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
