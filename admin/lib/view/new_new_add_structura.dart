@@ -1,5 +1,13 @@
+import 'dart:io';
+
+import 'package:admin/services/crud.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:xfile/xfile.dart';
+
+import '../services/firebase_services.dart';
 
 class NewNewAddStructura extends StatefulWidget {
   @override
@@ -7,9 +15,44 @@ class NewNewAddStructura extends StatefulWidget {
 }
 
 class _NewNewAddStructuraState extends State<NewNewAddStructura> {
+  // TextEditingController
   final _modelTextController = TextEditingController();
   final _nameTextController = TextEditingController();
   final _priceTextController = TextEditingController();
+
+  // Image Picker
+  File selectedImage;
+  bool _isLoading = false;
+
+  CrudMethods _crudMethods = new CrudMethods();
+
+  final ImagePicker _picker = ImagePicker();
+  FirebaseServices _services = FirebaseServices();
+
+  XFile _image;
+  String _imageUrl;
+
+  _getImage() async {
+    final pickedImage =
+        await ImagePicker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      this._image = XFile(pickedImage.path);
+    } else {
+      print('No Image Selected');
+    }
+    return _image;
+  }
+
+  // explame 1
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      selectedImage = image;
+    });
+  }
+
+  UserCredential userCredential;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +68,34 @@ class _NewNewAddStructuraState extends State<NewNewAddStructura> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Padding(
+              //   padding: const EdgeInsets.only(
+              //     bottom: 50,
+              //     top: 30,
+              //     left: 20,
+              //     right: 20,
+              //   ),
+              //   child: Container(
+              //     height: 120,
+              //     width: 120,
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(500),
+              //       color: Color(0xff444444),
+              //     ),
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         Icon(
+              //           Icons.photo_camera,
+              //           size: 40,
+              //           color: Colors.white,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+
               Padding(
                 padding: const EdgeInsets.only(
                   bottom: 50,
@@ -32,24 +103,29 @@ class _NewNewAddStructuraState extends State<NewNewAddStructura> {
                   left: 20,
                   right: 20,
                 ),
-                child: Container(
-                  height: 120,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(500),
-                    color: Color(0xff444444),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.photo_camera,
-                        size: 40,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
+                child: InkWell(
+                  onTap: () {
+                    _getImage().then((value) {
+                      setState(() {
+                        value = _image;
+                      });
+                    });
+                  },
+                  child: _isLoading
+                      ? Container(
+                          alignment: Alignment.center,
+                          child: CircularProgressIndicator(
+                            color: Color(0xff4444444),
+                          ),
+                        )
+                      : CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: _image == null
+                              ? NetworkImage(
+                                  'https://s.appleinsider.ru/2012/12/Steve-Jobs-Audiobook-Ai3123.png')
+                              : FileImage(File(_image.path)),
+                          radius: 70,
+                        ),
                 ),
               ),
 
@@ -198,7 +274,38 @@ class _NewNewAddStructuraState extends State<NewNewAddStructura> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    if (_image == null) {
+                      return ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Профиль суреті таңдалмаған'),
+                          backgroundColor: Color(0xff4444444),
+                        ),
+                      );
+                    }
+
+                    if (_image != null) {
+                      setState(() {
+                        _isLoading = true;
+                      });
+                    }
+
+                    _services.uploadFile(_image).then((value) {
+                      if (value != null) {
+                        setState(() {
+                          _imageUrl = value;
+                        });
+                      }
+                    }).then((value) {
+                      _services.addUserData(data: {
+                        'Картинка': _imageUrl,
+                        'Модель': _modelTextController,
+                        'Название': _nameTextController,
+                        'Цена': _priceTextController,
+                      });
+                      Navigator.pop(context);
+                    });
+                  },
                   child: Container(
                     height: 60,
                     width: double.infinity,
